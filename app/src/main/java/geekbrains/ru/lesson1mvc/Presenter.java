@@ -10,23 +10,13 @@ public class Presenter
         this.view = view;
     }
 
-    private void updateNewElementValue(int idx, int id){
+    private void updateNewElementValue(int idx){
         int newValue = model.getElementValueAtIndex(idx) + 1;
         model.setElementValueAtIndex(idx, newValue);
-        view.setButtonText(id, newValue);
+        view.setButtonText(idx, newValue);
     }
 
-    public void onClick(int id) {
-        switch (id){
-            case R.id.btnCounter1:
-                updateNewElementValue(0, id);
-                break;
-            case R.id.btnCounter2:
-                updateNewElementValue(1, id);
-                break;
-            case R.id.btnCounter3:
-                updateNewElementValue(2, id);
-                break;
-        }
+    public void onClick(int idx) {
+        updateNewElementValue(idx);
     }
 }
